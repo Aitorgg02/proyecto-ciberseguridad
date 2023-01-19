@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col">
+        <h1 class="titulo">LISTA DE VULNERABILIDADES</h1>
+    </div>
+</div>
+<a routerLink="/app-add-vulnerabilidad" class="btn btn-sm col-xs-2 anadir">Añadir</a>
+<button (click)="ordenarAZ()" class="btn btn-sm col-xs-2 ordenar">Ordenar de la A a la Z</button>
+<button (click)="ordenarZA()" class="btn btn-sm col-xs-2 ordenar">Ordenar de la Z a la A</button>
+<div class="search">
+    <input class="form-control" type="text" name="search" [(ngModel)]="buscarVulnerabilidad" placeholder="Busca por el nombre">
+</div>
+<div class="row">
+    <div class="col d-flex flex-wrap">
+        <!--Recorro la lista para pintar las cartas de las vulnerabilidades-->
+        <div *ngFor="let vulnerabilidad of vulnerabilidadservicio.vulnerabilidades | filter:buscarVulnerabilidad" class="card mx-3 mb-3" style="width: 18rem;">
+            <div class="card-body text-white bg-dark">
+              <h5 class="card-title">{{vulnerabilidad.nombre}}</h5>
+              <p class="card-text">{{vulnerabilidad.descripcionCorta}}</p>
+              <a routerLink="/vulnerabilidad/{{vulnerabilidad._id}}"class="btn btn-success btn-sm col-xs-2 margin-left">Ver mas</a>
+              <a routerLink="/app-editar-vulnerabilidad/{{vulnerabilidad._id}}" class="btn btn-primary btn-sm col-xs-2 margin-left">Editar</a>
+              <a (click)="eliminarVulnerabilidad(vulnerabilidad._id)" class="btn btn-danger btn-sm col-xs-2 margin-left">Eliminar</a>
+            </div>
+          </div>
+    </div>
+</div>

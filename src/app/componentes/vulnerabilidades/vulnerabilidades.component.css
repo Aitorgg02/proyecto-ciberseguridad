@@ -1,0 +1,37 @@
+.margin-left{
+    margin-left: 10px !important;
+}
+
+.titulo{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.anadir{
+    margin-left: 20px;
+    height: 40px;
+    width: 50px;
+    margin-bottom: 30px;
+    padding-right: 50px;
+    background-color: rgb(248, 219, 0);
+}
+
+.ordenar{
+    width: 100px;
+    margin-left: 10px;
+    margin-bottom: 30px;
+    width: 160px;
+    background-color: rgb(248, 219, 0);
+}
+
+a:hover{
+    background-color: rgb(253, 173, 0);
+}
+
+button:hover{
+    background-color: rgb(253, 173, 0);
+}
+
+.form-control{
+    margin-bottom: 50px;
+}

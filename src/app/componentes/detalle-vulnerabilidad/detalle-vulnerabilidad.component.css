@@ -1,0 +1,17 @@
+.titulo{
+    text-align: center;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.fotoVulnerabilidad{
+    max-width: 500px;
+    max-height: 600px;
+}
+
+.tarjetaInfo{
+    background-color: beige;
+    padding: 10px;
+    border-radius: 10px;
+}

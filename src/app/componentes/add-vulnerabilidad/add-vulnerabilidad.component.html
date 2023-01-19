@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 style="text-align: center;">AÑADIR UNA VULNERABILIDAD</h1>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Nombre de la vulnerabilidad</label>
+    <input [(ngModel)]="vulnerabilidadNueva.nombre"  type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nombre">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Descripcion corta de la vulnerabilidad</label>
+    <textarea [(ngModel)]="vulnerabilidadNueva.descripcionCorta" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Descripcion larga de la vulnerabilidad</label>
+    <textarea [(ngModel)]="vulnerabilidadNueva.descripcionLarga" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Mitigación</label>
+    <textarea [(ngModel)]="vulnerabilidadNueva.mitigacion" class="form-control" id="exampleFormControlTextarea2" rows="3" required></textarea>
+  </div>
+  <!-- <div class="mb-3">
+    <label for="formFile" class="form-label">Foto de la vulnerabilidad</label>
+    <input [(ngModel)]="vulnerabilidadNueva.foto" class="form-control" type="file" id="formFile">
+  </div> -->
+  <button class="btn btn-primary" (click)="agregarVulnerabilidad()">Añadir vulnerabilidad</button>
+  <a routerLink="/vulnerabilidades" class="btn btn-success btn-sm col-xs-2 cancelar">Cancelar</a>
+  <!-- <button (click)="cancelar()" class="btn btn-primary">Cancelar</button> -->
+  
+</body>
+</html>
