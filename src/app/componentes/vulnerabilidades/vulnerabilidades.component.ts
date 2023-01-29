@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Vulnerabilidad } from 'src/app/models/vulnerabilidad';
 import { VulnerabilidadServicioService } from 'src/app/servicios/vulnerabilidad-servicio.service';
 import { Router } from '@angular/router';
- 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-vulnerabilidades',
   templateUrl: './vulnerabilidades.component.html',
@@ -60,20 +61,33 @@ export class VulnerabilidadesComponent implements OnInit {
       err => console.log(err)
     );
   }
-  
 
   //Funcion para eliminar la vulnerabilidad de la lista
   eliminarVulnerabilidad(id:string){
-   if(confirm("¿Seguro que desea eliminar?")){
-     this.vulnerabilidadservicio.eliminarVulnerabilidad(id).subscribe((res)=>{
-       this.getVulnerabilidades();
-     },(error)=>{
-       console.log(error);
-     })
-   }
+    Swal.fire({
+      title: '¿Seguro que desea eliminar?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.vulnerabilidadservicio.eliminarVulnerabilidad(id).subscribe((res)=>{
+          this.getVulnerabilidades();
+          Swal.fire(
+            'Vulnerabilidad eliminada.',
+            'success'
+          )
+        },(error)=>{
+          console.log(error);
+        })
+        
+      }
+    })
   }
-
   
 
-
 }
+
+

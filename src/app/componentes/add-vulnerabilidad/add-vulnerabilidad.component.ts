@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { VulnerabilidadServicioService } from 'src/app/servicios/vulnerabilidad-servicio.service';
 import { Vulnerabilidad } from 'src/app/models/vulnerabilidad';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-add-vulnerabilidad',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-vulnerabilidad.component.css']
 })
 export class AddVulnerabilidadComponent implements OnInit {
-
+  titularAlerta:string='';
   public vulnerabilidadNueva!: Vulnerabilidad;
 
   constructor(public vulnerabilidadservicio:VulnerabilidadServicioService, 
@@ -27,7 +29,8 @@ export class AddVulnerabilidadComponent implements OnInit {
       },
       error =>{
         console.log(error);
-        alert("Vulnerabilidad añadida");
+        // alert("Vulnerabilidad añadida");
+        Swal.fire('Vulnerabilidad añadida con éxito',this.titularAlerta, 'success');
         this.router.navigate(['/vulnerabilidades']);
       }
     );

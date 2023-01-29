@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Vulnerabilidad } from 'src/app/models/vulnerabilidad';
 import { VulnerabilidadServicioService } from 'src/app/servicios/vulnerabilidad-servicio.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -12,43 +13,58 @@ import { VulnerabilidadServicioService } from 'src/app/servicios/vulnerabilidad-
 })
 export class EditarVulnerabilidadComponent implements OnInit {
 
-  public id!:string;
-  vulnerabilidadEditada: Vulnerabilidad={
-    _id:'',
-    nombre:'',
-    descripcionCorta:'',
-    descripcionLarga:'',
-    mitigacion:'',
-    foto:'',
+  public id!: string;
+  vulnerabilidadEditada: Vulnerabilidad = {
+    _id: '',
+    nombre: '',
+    descripcionCorta: '',
+    descripcionLarga: '',
+    mitigacion: '',
+    foto: '',
   };
 
 
-  constructor(public vulnerabilidadservicio:VulnerabilidadServicioService, private activateRouter: ActivatedRoute,
-    private route:Router) { 
-      this.id = this.activateRouter.snapshot.params["id"];
-    }
+  constructor(public vulnerabilidadservicio: VulnerabilidadServicioService, private activateRouter: ActivatedRoute,
+    private route: Router) {
+    this.id = this.activateRouter.snapshot.params["id"];
+  }
 
   ngOnInit(): void {
-    this.id= this.activateRouter.snapshot.params["id"];
+    this.id = this.activateRouter.snapshot.params["id"];
     this.vulnerabilidadservicio.getVulnerabilidadId(this.id).subscribe(
-      res=>{
-        this.vulnerabilidadEditada=res;
+      res => {
+        this.vulnerabilidadEditada = res;
       },
 
-      err=>console.log(err)
+      err => console.log(err)
     );
   }
 
-  //Con la funcion llamo al servicio para coger la funcion de editar y asi mediante el id puedo editar la vulnerabilidad
-  editarVulnerabilidad(){
-    this.vulnerabilidadservicio.editarVulnerabilidad(this.id, this.vulnerabilidadEditada).subscribe(
-      res=>{
-       console.log(res);
-      },
-      err=>{
-        alert("Vulnerabilidad editada");
-      this.route.navigate(['/vulnerabilidades']);
+  editarVulnerabilidad() {
+    Swal.fire({
+      title: '¿Desea editar la vulnerabilidad?',
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Editar'
+    }).then((result)=>{
+      if(result.isConfirmed){
+        this.vulnerabilidadservicio.editarVulnerabilidad(this.id, this.vulnerabilidadEditada).subscribe(
+          res => {
+            console.log(res);
+          },
+          err => {
+            Swal.fire(
+              'Vulnerabilidad editada',
+              'success'
+            )
+            //alert("Vulnerabilidad editada");
+            this.route.navigate(['/vulnerabilidades']);
+          }
+        );
       }
-    );
+    })
+   
   }
 }
