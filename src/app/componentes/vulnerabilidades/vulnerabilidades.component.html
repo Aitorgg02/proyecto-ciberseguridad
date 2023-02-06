@@ -14,6 +14,7 @@
         <!--Recorro la lista para pintar las cartas de las vulnerabilidades-->
         <div *ngFor="let vulnerabilidad of vulnerabilidadservicio.vulnerabilidades | filter:buscarVulnerabilidad" class="card mx-3 mb-3" style="width: 18rem;">
             <div class="card-body text-white bg-dark">
+              <img src="assets/img/defecto.png" class="card-img-top">
               <h5 class="card-title">{{vulnerabilidad.nombre}}</h5>
               <p class="card-text">{{vulnerabilidad.descripcionCorta}}</p>
               <a routerLink="/vulnerabilidad/{{vulnerabilidad._id}}"class="btn btn-success btn-sm col-xs-2 margin-left">Ver mas</a>

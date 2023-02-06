@@ -10,15 +10,16 @@
     <h1 class="titulo">Detalle de {{VulnerabilidadSelected.nombre}}</h1>
 <div class="row">
     <div class="col-6">
+        <!-- <img class="fotoVulnerabilidad" src="./assets/img/{{VulnerabilidadSelected.foto}}"> -->
         <img class="fotoVulnerabilidad" src="assets/img/{{VulnerabilidadSelected.foto}}">
     </div>
     <div class="col-6 tarjetaInfo">
         
         <!-- <p>{{VulnerabilidadSelected.descripcionCorta}}</p> -->
-        <h5>DESCRIPCIÓN DEL ATAQUE</h5>
-       <p>{{VulnerabilidadSelected.descripcionLarga}}</p>
-       <h5>MITIGACIÓN</h5>
-       <p>{{VulnerabilidadSelected.mitigacion}}</p>
+        <h5 class="detalleVulnerabilidad">DESCRIPCIÓN DEL ATAQUE</h5>
+       <p class="detalleVulnerabilidad">{{VulnerabilidadSelected.descripcionLarga}}</p>
+       <h5 class="detalleVulnerabilidad">MITIGACIÓN</h5>
+       <p class="detalleVulnerabilidad">{{VulnerabilidadSelected.mitigacion}}</p>
        <a routerLink="/vulnerabilidades" class="btn btn-success btn-sm col-xs-2 margin-left">Volver</a>
     </div>
 </div>
