@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { AddVulnerabilidadComponent } from './componentes/add-vulnerabilidad/add-vulnerabilidad.component';
 import { EditarVulnerabilidadComponent } from './componentes/editar-vulnerabilidad/editar-vulnerabilidad.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { LabXSSComponent } from './componentes/lab-xss/lab-xss.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     DetalleVulnerabilidadComponent,
     AddVulnerabilidadComponent,
     EditarVulnerabilidadComponent,
+    LabXSSComponent,
     
   ],
   imports: [

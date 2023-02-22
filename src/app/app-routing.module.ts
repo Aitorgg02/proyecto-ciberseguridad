@@ -4,6 +4,7 @@ import { AddVulnerabilidadComponent } from './componentes/add-vulnerabilidad/add
 import { AterrizajeComponent } from './componentes/aterrizaje/aterrizaje.component';
 import { DetalleVulnerabilidadComponent } from './componentes/detalle-vulnerabilidad/detalle-vulnerabilidad.component';
 import { EditarVulnerabilidadComponent } from './componentes/editar-vulnerabilidad/editar-vulnerabilidad.component';
+import { LabXSSComponent } from './componentes/lab-xss/lab-xss.component';
 import { VulnerabilidadesComponent } from './componentes/vulnerabilidades/vulnerabilidades.component';
 
 const routes: Routes = [
@@ -12,8 +13,9 @@ const routes: Routes = [
     {path:'vulnerabilidades', component:VulnerabilidadesComponent},
     {path: 'vulnerabilidad/:id',component:DetalleVulnerabilidadComponent},
     {path:'app-add-vulnerabilidad', component:AddVulnerabilidadComponent},
-    {path:'app-editar-vulnerabilidad/:id', component:EditarVulnerabilidadComponent}
-];
+    {path:'app-editar-vulnerabilidad/:id', component:EditarVulnerabilidadComponent},
+    {path:'lab-xss',component:LabXSSComponent}
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
