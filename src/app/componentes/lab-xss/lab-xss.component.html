@@ -1,5 +1,8 @@
-<div>
-    <input #searchTxt type="text" placeholder="Search...">
-    <button (click)="search(searchTxt)">Search</button>
-    <h1>You searched for <span [innerHtml]="searchKey"></span></h1>
-</div>
+<form class="searchform cf">
+    <h3>Tu búsqueda para <span [innerHtml]="searchKey"></span></h3>
+    <input type="text" #searchTxt placeholder="Busca algo interesante :)">
+    <button (click)="search(searchTxt)">Buscar</button>
+</form>
+
+   
+

@@ -18,6 +18,7 @@ export class LabXSSComponent {
 
     //Escalar code a un openredirect
     //<div onclick="location.href='www.google.com'">hola</div>
+    //<div onclick="alert('Hacked')">Hola</div>
   }
 
 }
