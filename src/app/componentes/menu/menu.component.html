@@ -19,6 +19,23 @@
               <li class="nav-item">
                 <a class="nav-link" routerLink="/lab-xss">LAB TO XSS</a>
               </li>
+              <ng-container *ngIf="!authService.loggedIn() else logout">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login" routerLinkActive="active">INICIAR SESIÓN</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/registro" routerLinkActive="active">REGISTRARSE</a>
+              </li>
+            </ng-container>
+            <ng-template #logout>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="" routerLinkActive="active"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="" (click)="authService.logout()">CERRAR SESIÓN</a>
+                </li>
+            </ng-template>
+    
             </ul>
         </div>
       </nav>

@@ -1,0 +1,14 @@
+<div>
+    <form #formularioLogin="ngForm" (ngSubmit)="login(formularioLogin)">
+          <!--Con el ngModel recojo de la variable los datos para editarlos-->
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email</label>
+            <input [(ngModel)]="email" type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Nombre">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Constraseña</label>
+            <input [(ngModel)]="password" type="password" name="password" class="form-control" id="exampleFormControlInput1" placeholder="Nombre">
+          </div>
+          <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+        </form>
+  </div>

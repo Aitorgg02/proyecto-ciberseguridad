@@ -14,7 +14,11 @@ import { AddVulnerabilidadComponent } from './componentes/add-vulnerabilidad/add
 import { EditarVulnerabilidadComponent } from './componentes/editar-vulnerabilidad/editar-vulnerabilidad.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { LabXSSComponent } from './componentes/lab-xss/lab-xss.component';
-
+import { RegisterComponent } from './componentes/register/register.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { AuthGuard } from './auth/auth.guard';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,8 @@ import { LabXSSComponent } from './componentes/lab-xss/lab-xss.component';
     AddVulnerabilidadComponent,
     EditarVulnerabilidadComponent,
     LabXSSComponent,
+    RegisterComponent,
+    LoginComponent,
     
   ],
   imports: [
@@ -34,9 +40,17 @@ import { LabXSSComponent } from './componentes/lab-xss/lab-xss.component';
     HttpClientModule,
     AppRoutingModule,
     Ng2SearchPipeModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    })
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

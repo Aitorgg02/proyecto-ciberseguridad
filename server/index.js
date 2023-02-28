@@ -8,6 +8,7 @@ app.use(cors({origin:'http://localhost:4200'}));
 
 
 app.use('/api',require('./routes/index'));
+app.use('/api/users',require('./routes/users'));
 
 app.listen(3000);
 console.log('servidor en el puerto',3000);
