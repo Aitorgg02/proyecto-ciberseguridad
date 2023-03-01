@@ -29,7 +29,7 @@ export class AddVulnerabilidadComponent implements OnInit {
       },
       error =>{
         console.log(error);
-        Swal.fire('Vulnerabilidad añadida con éxito',this.titularAlerta, 'success');
+        Swal.fire('Vulnerabilidad ' +this.vulnerabilidadNueva.nombre+ ' añadida con éxito',this.titularAlerta, 'success');
         this.router.navigate(['/vulnerabilidades']);
       }
     );

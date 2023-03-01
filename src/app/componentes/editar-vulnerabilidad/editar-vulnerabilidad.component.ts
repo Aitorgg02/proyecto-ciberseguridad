@@ -22,6 +22,7 @@ export class EditarVulnerabilidadComponent implements OnInit {
     mitigacion: '',
     foto: '',
   };
+  titularAlerta:string='';
 
 
   constructor(public vulnerabilidadservicio: VulnerabilidadServicioService, private activateRouter: ActivatedRoute,
@@ -55,10 +56,7 @@ export class EditarVulnerabilidadComponent implements OnInit {
             console.log(res);
           },
           err => {
-            Swal.fire(
-              'Vulnerabilidad editada',
-              'success'
-            )
+            Swal.fire('Vulnerabilidad ' + this.vulnerabilidadEditada.nombre + 'editada',this.titularAlerta,'success');
             //alert("Vulnerabilidad editada");
             this.route.navigate(['/vulnerabilidades']);
           }
