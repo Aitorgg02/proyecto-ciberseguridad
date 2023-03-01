@@ -29,7 +29,6 @@ export class AddVulnerabilidadComponent implements OnInit {
       },
       error =>{
         console.log(error);
-        // alert("Vulnerabilidad añadida");
         Swal.fire('Vulnerabilidad añadida con éxito',this.titularAlerta, 'success');
         this.router.navigate(['/vulnerabilidades']);
       }

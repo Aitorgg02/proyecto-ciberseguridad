@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class VulnerabilidadesComponent implements OnInit {
   buscarVulnerabilidad:any;
+  titularAlerta:string='';
 
   constructor(public vulnerabilidadservicio:VulnerabilidadServicioService,
      private router:Router) { }
@@ -75,10 +76,7 @@ export class VulnerabilidadesComponent implements OnInit {
       if (result.isConfirmed) {
         this.vulnerabilidadservicio.eliminarVulnerabilidad(id).subscribe((res)=>{
           this.getVulnerabilidades();
-          Swal.fire(
-            'Vulnerabilidad eliminada.',
-            'success'
-          )
+          Swal.fire('Vulnerabilidad eliminada',this.titularAlerta,'success');
         },(error)=>{
           console.log(error);
         })

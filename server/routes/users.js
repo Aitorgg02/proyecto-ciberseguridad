@@ -69,7 +69,7 @@ router.get('/', async (req, res) => {
       }
   });
   
-  router.put('/:id', async (req, res) => {
+  router.put('/actualizarUser/:id', async (req, res) => {
     const { email } = req.body;
     const datosUser = await User.findOne({ email });
     const { id } = req.params;
@@ -93,7 +93,7 @@ router.get('/', async (req, res) => {
     }
   });
   
-  router.delete(':/id', async (req, res) => {
+  router.delete('/eliminarUser/:id', async (req, res) => {
     await User.findByIdAndDelete(req.params.id);
     res.json({ msg: "User eliminado" });
   });

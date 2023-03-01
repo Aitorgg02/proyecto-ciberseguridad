@@ -19,7 +19,7 @@ const routes: Routes = [
     {path: 'vulnerabilidad/:id',component:DetalleVulnerabilidadComponent,canActivate: [AuthGuard]},
     {path:'app-add-vulnerabilidad', component:AddVulnerabilidadComponent,canActivate: [AuthGuard]},
     {path:'app-editar-vulnerabilidad/:id', component:EditarVulnerabilidadComponent,canActivate: [AuthGuard]},
-    {path:'lab-xss',component:LabXSSComponent}
+    {path:'lab-xss',component:LabXSSComponent,canActivate: [AuthGuard]}
   ];
 
 @NgModule({

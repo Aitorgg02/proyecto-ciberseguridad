@@ -1,14 +1,28 @@
-<div>
-    <form #formularioLogin="ngForm" (ngSubmit)="login(formularioLogin)">
-          <!--Con el ngModel recojo de la variable los datos para editarlos-->
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Email</label>
-            <input [(ngModel)]="email" type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Nombre">
+  <div class="container">
+    <div class="screen">
+      <div class="screen__content">
+        <form class="login" #formularioLogin="ngForm" (ngSubmit)="login(formularioLogin)">
+          <div class="login__field">
+            <i class="login__icon fas fa-user"></i>
+            <input [(ngModel)]="email" type="email" name="email"  class="login__input" placeholder="Email">
           </div>
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Constraseña</label>
-            <input [(ngModel)]="password" type="password" name="password" class="form-control" id="exampleFormControlInput1" placeholder="Nombre">
+          <div class="login__field">
+            <i class="login__icon fas fa-lock"></i>
+            <input [(ngModel)]="password" type="password" name="password" class="login__input" placeholder="Contraseña">
           </div>
-          <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+          <button class="button login__submit">
+            <span class="button__text">Iniciar sesión</span>
+            <i class="button__icon fas fa-chevron-right"></i>
+          </button>				
         </form>
+      </div>
+      <div class="screen__background">
+        <span class="screen__background__shape screen__background__shape4"></span>
+        <span class="screen__background__shape screen__background__shape3"></span>		
+        <span class="screen__background__shape screen__background__shape2"></span>
+        <span class="screen__background__shape screen__background__shape1"></span>
+      </div>		
+    </div>
   </div>
+
+  
